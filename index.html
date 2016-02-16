@@ -8,6 +8,8 @@
 	<link rel="stylesheet" type="text/css" href="css/semantic.min.css">
 </head>
 <body>
+
+	<!-- Content -->
 	<div class="ui container">
 		<div class="ui menu">
 		  <div class="item">
@@ -25,15 +27,79 @@
 		    </div>
 		  </div>
 		</div>
+	    <div id="bt-add" class="ui primary button">
+			<i class="icon add"></i>
+	    	Adicionar Contato
+	    </div>
+	    <h4 class="ui horizontal divider header">
+		  <i class="tag icon"></i>
+		  Meus Contatos
+		</h4>
 		<div id="listarContatos" class="ui six link cards">
 		</div>
+	</div>
+
+	<!-- Edit Contact Modal -->
+	<div class="ui small modal editar-contato">
+	  <div class="header">Editar Contato</div>
+	  <div class="content">
+		<img class="ui small circular image centered" src="http://semantic-ui.com/images/wireframe/square-image.png"/>
+		<form class="ui form">
+			<div class="field">
+				<label>Nome:</label>
+				<input type="text" name="nome" placeholder="Insira um novo nome">
+			</div>
+			<div class="field">
+				<label>Telefone:</label>
+				<input type="text" name="telefone" placeholder="Insira um novo telefone">
+			</div>
+		</form>
+	  </div>
+	  <div class="actions">
+	    <div class="ui inverted red cancel button">
+			<i class="icon remove"></i>
+			Cancelar
+		</div>
+	    <div id="bt-action" class="ui inverted green button bt-editar">
+			<i class="icon edit"></i>
+	    	Editar
+	    </div>
+	  </div>
+	</div>
+
+	<!-- New Contact Modal -->
+	<div class="ui small modal novo-contato">
+	  <div class="header">Novo Contato</div>
+	  <div class="content">
+		<img class="ui small circular image centered" src="http://semantic-ui.com/images/wireframe/square-image.png"/>
+		<form class="ui form">
+			<div class="field">
+				<label>Nome:</label>
+				<input type="text" name="nome" placeholder="Insira um novo nome">
+			</div>
+			<div class="field">
+				<label>Telefone:</label>
+				<input type="text" name="telefone" placeholder="Insira um novo telefone">
+			</div>
+		</form>
+	  </div>
+	  <div class="actions">
+	    <div class="ui inverted red cancel button">
+			<i class="icon remove"></i>
+			Cancelar
+		</div>
+	    <div id="bt-action" class="ui inverted green button bt-salvar">
+			<i class="icon edit"></i>
+	    	Salvar
+	    </div>
+	  </div>
 	</div>
 	
 	<!-- Scripts -->
 	<script src="js/jquery-2.2.0.min.js"></script>
 	<script src="js/firebase.js"></script>
 	<script src="js/semantic.min.js"></script>
-	<script src="js/scriptGeral.js"></script>
 	<script src="js/bancoDeDados.js"></script>
+	<script src="js/scriptGeral.js"></script>
 </body>
 </html>
