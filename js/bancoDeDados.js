@@ -35,3 +35,11 @@ function editarContato(id, nome, telefone, imagem){
 			"telefone" : telefone
 		});
 }
+
+function salvarContato(id, nome, telefone, imagem){
+	url.child("Contatos").push().set({
+			"nome" : nome,
+			"telefone" : telefone,
+			"imagem" : "iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAaNJREFUWIXt1UFrE0EUB/D//81g2yBEpaVQ8BZ68RCGBOMePdb2I3htPfhd/BB+imJB8ZSDrFmCAQ/xIAhFEWwOpYk7O68HPZS0281q5yDmf5x5+96PYdgBlllmmf89/JOPer3eZlEUeyGEbQC5iHzw3h9mWXYSHdButx9Ya5+RXLm4rqpnAF6mafq+Tj+pOZ/W2v354QBAck1VD7rd7sNogCRJ7pJcK20mQlV9FA3gvb9TVUPyXjSAMebS0c9HVU00QJ7nWlVDchoNICKnVTWq+iMawFr7PYRw7Smo6nE0QL/fPwNQNeBTNAAAiEhWtqeq09ls9jEqwHv/FkBeAjgajUY/owKyLDtR1a9X7ZF8XbdfbQB+vR9lP6RGdIBzrkPydsn2bt1+C7+GzrkNAF2ST0TkVlmdqo4AvErTdKHLeC2g0+k0QgiJiCQk7y+K/Q35AuDNZDJ5Nx6PZ7UArVZrpdls7gB4THK1zuArINMQQloUxeFwOPxWCXDObRljngNY/5vBJZAXg8Hg88X1S5fQGHNw08MBgOSqMebpTfdd5t/POYU9k2jaY20eAAAAAElFTkSuQmCC"
+		});
+}

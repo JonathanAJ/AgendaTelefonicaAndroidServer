@@ -47,10 +47,10 @@ $(document).ready(function(){
 	/*
 	 * Ao clicar em editar/salvar
 	 */
-	 var btAcao = $("#bt-action");
+	 var btAcao = $(".bt-action");
 	 btAcao.click(function(){
 	 	if(btAcao.hasClass("bt-editar")){
-	 		pegarValores();
+	 		pegarValores("editar");
 	 		// BancoDeDados.js
 	 		editarContato(id_contato, nom_contato, tel_contato, img_contato);
 			/*
@@ -62,8 +62,9 @@ $(document).ready(function(){
 			  }).modal('hide');
 
 	 	}else if(btAcao.hasClass("bt-salvar")){
+	 		pegarValores("salvar");
 	 		// BancoDeDados.js
-	 		salvarContato();
+	 		salvarContato(id_contato, nom_contato, tel_contato, img_contato);
 			/*
 			 * Fecha a Modal
 			 */
@@ -74,8 +75,13 @@ $(document).ready(function(){
 	 	}
 	 });
 
-	function pegarValores(){
-		var modal_element = $('.ui.modal.editar-contato');
+	function pegarValores(acao){
+		var modal_element;
+		if(acao=="salvar"){
+			modal_element = $('.ui.modal.novo-contato');
+		}else if(acao=="editar"){
+			modal_element = $('.ui.modal.editar-contato');
+		}
 		nom_contato = modal_element.find('input[name=nome]').val();
 		tel_contato = modal_element.find('input[name=telefone]').val();
 		img_contato = modal_element.find('img').attr('src');
