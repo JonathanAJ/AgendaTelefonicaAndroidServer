@@ -3,6 +3,7 @@ var url = new Firebase("https://minhagendatelefonica.firebaseio.com/");
 $(document).ready(function(){
 	url.child("Contatos").on("value", function(snapshot) {
 		$('#listarContatos').empty();
+		$('#load').remove();
 		snapshot.forEach(function(childSnapshot){
 		var contato = childSnapshot.val();
 		var component = "<div class='ui card modal-edit'>"+
