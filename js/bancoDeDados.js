@@ -55,10 +55,5 @@ function salvarContato(nome, telefone, imagem){
 }
 
 function removerContato(id){
-	console.log(id);
-	url.child("Contatos").child(id).update({
-			"nome" : null,
-			"telefone" : null,
-			"imagem" : null
-		});
+	url.child("Contatos").child(id).remove();
 }
