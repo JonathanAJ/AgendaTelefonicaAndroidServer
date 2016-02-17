@@ -7,7 +7,7 @@ $(document).ready(function(){
 	var nom_contato;
 	var tel_contato;
 	/*
-	 * Abre uma modal para criar
+	 * Abre a modal para criar contato
 	 */
 	$('#bt-add').click(function(){
 		var modal_element = $('.ui.modal.novo-contato');
@@ -45,11 +45,11 @@ $(document).ready(function(){
 
 	});
 	/*
-	 * Ao clicar em editar/salvar
+	 * Ao clicar em editar/salvar da modal
 	 */
-	 var btAcao = $(".bt-action");
-	 btAcao.click(function(){
-	 	if(btAcao.hasClass("bt-editar")){
+	var btAcao = $(".bt-action");
+	btAcao.click(function(){
+	 	if($(this).hasClass("bt-editar")){
 	 		pegarValores("editar");
 	 		// BancoDeDados.js
 	 		editarContato(id_contato, nom_contato, tel_contato, img_contato);
@@ -61,10 +61,10 @@ $(document).ready(function(){
 			    blurring: true
 			  }).modal('hide');
 
-	 	}else if(btAcao.hasClass("bt-salvar")){
+	 	}else if($(this).hasClass("bt-salvar")){
 	 		pegarValores("salvar");
 	 		// BancoDeDados.js
-	 		salvarContato(id_contato, nom_contato, tel_contato, img_contato);
+	 		salvarContato(nom_contato, tel_contato, img_contato);
 			/*
 			 * Fecha a Modal
 			 */
@@ -72,9 +72,21 @@ $(document).ready(function(){
 			modal_element.modal({
 			    blurring: true
 			  }).modal('hide');
+	 	}else if($(this).hasClass("bt-remover")){
+	 		// BancoDeDados.js
+	 		removerContato(id_contato);
+			/*
+			 * Fecha a Modal
+			 */
+			var modal_element = $('.ui.modal.editar-contato');
+			modal_element.modal({
+			    blurring: true
+			  }).modal('hide');
 	 	}
-	 });
-
+	});
+	 /*
+	  * Pega os valores digitados nos campos da modal
+	  */
 	function pegarValores(acao){
 		var modal_element;
 		if(acao=="salvar"){
