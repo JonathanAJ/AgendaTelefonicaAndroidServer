@@ -1,9 +1,8 @@
 var url = new Firebase("https://minhagendatelefonica.firebaseio.com/");
 
 $(document).ready(function(){
-	retornarContatos();
-	$("input[name='pesquisa']").change(function() {
-		console.log($(this).val());
+	retornarContatos("");
+	$("input[name='pesquisa']").keydown(function(){
 		retornarContatos($(this).val());
 	});
 });
